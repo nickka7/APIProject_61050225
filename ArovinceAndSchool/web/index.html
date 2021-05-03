@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>location</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+        <script>
+                $(function() {
+               var local = [];
+               console.log("local");
+               $.getJSON('api/Arovince.json', function(data) {
+                   $.each(data.result.records, function(i, f) {
+                      var tblRow = "<tr>" + "<td>" + f._id + "</td>" +
+                       "<td>" + f.PROVINCE_ID + "</td>" + "<td>" + f.PROVINCE_NAME + "</td>" 
+                        + "<td>"+ f.LAT + "</td>" + "<td>"+ f.LNG + "</td>" + "</tr>"
+                       console.log(tblRow)
+                       $(tblRow).appendTo("#data tbody");
+                 });
+               });
+            });
+        </script>
+    </head>
+    
+    <body>
+            
+            <a href="School.html">  ที่ตั้งโรงเรียนสังกัดองค์กรปกครองส่วนท้องถิ่น  </a>
+        <center>
+
+            <div><h1>   ที่ตั้งของสำนักงานส่งเสริมการปกครองท้องถิ่นจังหวัด </h1></div>
+            <div>
+                
+                <table  border="4" bordercolor="blue" width =" 60%" height ="20%"  cellpadding ="10" id="data">
+                  <tr=>
+                     <th> ลำดับที่    </th>
+                      <th> เลขที่ </th>
+                      <th> จังหวัด </th>
+                      <th> ละติจูด </th>
+                      <th> ลองจิจูด </th>
+                  </tr>
+                      
+                </table>
+            </div>
+        </center>
+    </body>
+</html>
